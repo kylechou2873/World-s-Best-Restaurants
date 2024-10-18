@@ -1,11 +1,11 @@
 function zoomToRest(rest){
-  d3.json("https://raw.githubusercontent.com/ZhengshengWang/Project-3---World-s-Best-Restaurants/refs/heads/main/Resource/csvjson.json").then((data)=>{
+  d3.json("https://raw.githubusercontent.com/kylechou2873/World-s-Best-Restaurants/refs/heads/main/Resource/cleaned.json").then((data)=>{
     let restObj = data.filter((item)=>item.restaurant === rest);
     map_06c7c6fd049b8c568e0b30a5a6e021b2.setView([restObj[0].lat,restObj[0].lng],15);
   });
 };
 function buildCountryChart(restList){
-  d3.json("https://raw.githubusercontent.com/ZhengshengWang/Project-3---World-s-Best-Restaurants/refs/heads/main/Resource/restRepeatRank.json").then((data)=>{
+  d3.json("https://raw.githubusercontent.com/kylechou2873/World-s-Best-Restaurants/refs/heads/main/Resource/restRepeatRank.json").then((data)=>{
     let restCount = [];
     for (let i = 0; i<restList.length; i++){
       let restObj = data.filter((item)=>item.restaurant === restList[i]);
@@ -43,7 +43,7 @@ function buildCountryChart(restList){
 }
 // function to build charts
 function buildCharts(country) {
-  d3.json("https://raw.githubusercontent.com/ZhengshengWang/Project-3---World-s-Best-Restaurants/refs/heads/main/Resource/csvjson.json").then((data) => {
+  d3.json("https://raw.githubusercontent.com/kylechou2873/World-s-Best-Restaurants/refs/heads/main/Resource/cleaned.json").then((data) => {
 
     // Get the data
     let list = data;
@@ -71,7 +71,7 @@ function buildCharts(country) {
   });
 }
 function buildRegionChart(counList){
-  d3.json("https://raw.githubusercontent.com/ZhengshengWang/Project-3---World-s-Best-Restaurants/refs/heads/main/Resource/countryTopRest.json").then((data)=>{
+  d3.json("https://raw.githubusercontent.com/kylechou2873/World-s-Best-Restaurants/refs/heads/main/Resource/countryTopRest.json").then((data)=>{
     let counCount = [];
     for (let i = 0; i <counList.length; i++){
       let counObj = data.filter((item)=>item.country === counList[i]);
@@ -110,7 +110,7 @@ function buildRegionChart(counList){
 }
 
 function buildSubFilt(region){
-  d3.json("https://raw.githubusercontent.com/ZhengshengWang/Project-3---World-s-Best-Restaurants/refs/heads/main/Resource/csvjson.json").then((data)=>{
+  d3.json("https://raw.githubusercontent.com/kylechou2873/World-s-Best-Restaurants/refs/heads/main/Resource/cleaned.json").then((data)=>{
     let list = data;
     //filter data to the region
     let selection = list.filter((item)=>item.Region === region);
